@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 /*create a program using puts function
- *return 0
  *end with newline
  */
 
