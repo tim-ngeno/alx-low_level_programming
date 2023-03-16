@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-/*create a program using puts function
- *end with newline
+/**
+ *main -Entry point
+ *
+ *Return: Always 0 (success)
  */
-
-int main (void)
+int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
-	return 0;
+	return (0);
 }
-
