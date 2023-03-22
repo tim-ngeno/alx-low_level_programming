@@ -19,7 +19,7 @@ int main(void)
 		f1 = f2;
 		f2 = sum;
 
-		if (count == 49)
+		if (n == 49)
 			printf("\n");
 		else
 			printf(", ");
