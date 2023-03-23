@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 
 /**
@@ -30,7 +29,7 @@ int main(void)
 		}
 		if (z != 100)
 		{
-			printf(" ")
+			printf(" ");
 		}
 	}
 	printf("\n");
