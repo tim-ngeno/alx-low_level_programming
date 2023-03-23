@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 /**
@@ -14,23 +15,25 @@ int main(void)
 		if ((z % 3 == 0) && (z % 5 == 0))
 		{
 			printf("FizzBuzz");
-			printf(" ");
 		}
 		else if (z % 5 == 0)
 		{
 			printf("Buzz");
-			printf(" ");
 		}
 		else if (z % 3 == 0)
 		{
 			printf("Fizz");
-			printf(" ");
 		}
 		else
 		{
 			printf("%d", z);
-			printf(" ");
+		}
+		if (z != 100)
+		{
+			printf(" ")
 		}
 	}
 	printf("\n");
+
+	return (0);
 }
