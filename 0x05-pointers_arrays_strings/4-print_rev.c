@@ -7,16 +7,15 @@
  */
 void print_rev(char *s)
 {
-        int index;
-        int len;
+	int index;
+	int len;
 
-        len = _strlen(s);
-
-        for (index = len - 1; index >= 0; index--)
-        {
-                _putchar(s[index]);
-        }
-        _putchar('\n');
+	len = _strlen(s);
+	for (index = len - 1; index >= 0; index--)
+	{
+		_putchar(s[index]);
+	}
+	_putchar('\n');
 }
 
 /**
@@ -26,12 +25,12 @@ void print_rev(char *s)
  */
 int _strlen(char *s)
 {
-        int len = 0;
+	int len = 0;
 
-        while (*s != '\0')
-        {
-                ++len;
-                ++s;
-        }
-        return (len);
+	while (*s != '\0')
+	{
+		++len;
+		++s;
+	}
+	return (len);
 }
