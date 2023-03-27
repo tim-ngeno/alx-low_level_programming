@@ -8,28 +8,25 @@
 void rev_string(char *s)
 {
 	int index;
-	int len = _strlen(s);
+	int len;
 
-	for (index = len; index >= 0; index--)
+	char *begin, *end = s;
+
+	for (index = 0; s[index] != '\0' && s[index + 1] != '\0'; index++)
 	{
-		_putchar(s[index]);
+		end++;
 	}
-	_putchar('\n');
-}
+	len = index +1;
+	begin = s;
 
-/**
- * _strlen - print the length of a string
- * @s: the string
- * Return: void
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s != '\0')
+	for (index = 0; index < len / 2; index++)
 	{
-		++len;
-		++s;
+		char temp;
+		temp = *end;
+		*end = *begin;
+		*begin = temp;
+		begin++;
+		end--;
 	}
-	return (len);
+	end[len + 1] = '\0';
 }
