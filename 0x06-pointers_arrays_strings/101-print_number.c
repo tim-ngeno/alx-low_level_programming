@@ -3,25 +3,21 @@
 
 /**
  * print_number - prints an integer
- *
- * @n: the input integer
- *
- * Return: output integer
+ * @n: the integer to be printed
+ * Return: void
  */
 void print_number(int n)
 {
-	unsigned int i;
+	unsigned int k = n;
 
 	if (n < 0)
 	{
-		_putchar('-');
 		n *= -1;
+		k = n;
+		_putchar('-');
 	}
-
-	i = n;
-
-	if (i / 10)
-		print_number(i / 10);
-
-	_putchar((i % 10) + '0');
+	k /= 10;
+	if (k != 0)
+		print_number(k);
+	_putchar((unsigned int) n % 10 + '0');
 }
