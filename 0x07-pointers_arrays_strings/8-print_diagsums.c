@@ -17,7 +17,7 @@ void print_diagsums(int *a, int size)
 	d = e = 0;
 	x = 0;
 	b = size - 1;
-	for (c = 0; c < size; i++)
+	for (c = 0; c < size; c++)
 	{
 		d += *(a + c * size + x);
 		e += *(a + c * size + b);
