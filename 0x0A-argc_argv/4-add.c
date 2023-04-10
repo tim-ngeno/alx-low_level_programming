@@ -18,7 +18,8 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		if (!(*argv[i] >= 49 && *argv[i] <= 57))
+		if (!(*argv[i] >= 49 && *argv[i] <= 57)
+		    || *argv[i] < 0)
 
 		{
 			printf("Error\n");
@@ -33,6 +34,5 @@ int main(int argc, char *argv[])
 
 	}
 	printf("%d\n", total);
-
 	return (0);
 }
