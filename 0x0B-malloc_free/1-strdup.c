@@ -3,8 +3,7 @@
 #include <stdlib.h>
 
 /**
- * _strdup - duplicates a string and returns pointer
-to its new location
+ * _strdup - duplicates a string and returns pointer to its new location
 * @str: the input string
 * Return: pointer to the duplicate string
 */
