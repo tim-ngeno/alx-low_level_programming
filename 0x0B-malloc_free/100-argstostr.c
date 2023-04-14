@@ -12,7 +12,7 @@
 char *argstostr(int ac, char **av)
 {
 	int i, j, k, m, n;
-	int count = 1;
+	int count = 0;
 	char *s;
 
 	if (ac == 0 || av == NULL)
