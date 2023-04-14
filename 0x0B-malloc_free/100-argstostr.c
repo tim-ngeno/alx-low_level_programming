@@ -11,7 +11,7 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, m, n, j;
+	int i, j, k, m, n;
 	int count = 1;
 	char *s;
 
@@ -31,18 +31,18 @@ char *argstostr(int ac, char **av)
 	if (s == NULL)
 		return (NULL);
 
-	m = 0;
-	for (n = 0; n < ac; n++)
+	k = 0;
+	for (m = 0; m < ac; m++)
 	{
-		for (j = 0; av[n][j] != '\0'; j++)
+		for (n = 0; av[m][n] != '\0'; n++)
 		{
-			s[m] = av[n][j];
-			m++;
+			s[k] = av[m][n];
+			k++;
 		}
-		s[m] = '\n';
-		m++;
+		s[k] = '\n';
+		k++;
 	}
 
-	s[m] = '\0';
+	s[k] = '\0';
 	return (s);
 }
