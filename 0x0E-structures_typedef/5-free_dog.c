@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * free_dog - frees dogs
+ * free_dog - frees dogs created by struct
  *
  * @d: pointer to struct dog
  *
@@ -10,5 +10,10 @@
  */
 void free_dog(dog_t *d)
 {
-	free(d);
+	if (d)
+	{
+		free(d->name);
+		free(d->owner);
+		free(d);
+	}
 }
