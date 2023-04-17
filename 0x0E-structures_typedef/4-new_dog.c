@@ -8,7 +8,7 @@
  * @name: the new dog name
  * @age:  the new dog age
  * @owner: new dog owner
- *
+ * Return: new dog created
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -17,7 +17,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	int count_name, count_owner;
 
 	my_dog = malloc(sizeof(dog_t));
-
 	count_name = strlen(name);
 	if (my_dog == NULL)
 		return (NULL);
@@ -29,13 +28,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-
 	for (i = 0; i < count_name; i++)
 	{
 		my_dog->name[i] = name[i];
 	}
 	my_dog->name[count_name] = '\0';
-
 
 	count_owner = strlen(owner);
 	my_dog->owner = malloc(count_owner + 1);
@@ -45,7 +42,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(my_dog->name);
 		return (NULL);
 	}
-
 	for (j = 0; j < count_owner; j++)
 	{
 		my_dog->owner[j] = owner[j];
