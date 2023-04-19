@@ -1,5 +1,4 @@
 #include "3-calc.h"
-#include "function_pointers.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,7 +16,7 @@ int main(int argc, char *argv[])
 	char *symbol;
 
 	n1 = atoi(argv[1]);
-	symbol = argv[2];
+	symbol = *argv[2];
 	n2 = atoi(argv[3]);
 
 	if (argc != 4)
