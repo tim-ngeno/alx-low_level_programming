@@ -21,11 +21,14 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 		count += 1;
 		p = p->next;
 
+		/*
 		if (count == index)
 		{
 			return (p);
 		}
+		*/
 	}
 
-	return (NULL);
+	return (p);
+
 }
