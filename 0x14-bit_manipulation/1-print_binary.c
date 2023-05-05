@@ -9,23 +9,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int bit;
-	unsigned int first = 1;
-
-	for (bit = 65; bit >= 0; bit--)
-	{
-		if ((n >> bit) & 1)
-		{
-			_putchar('1');
-			first = 0;
-		}
-		else if (!first)
-		{
-			_putchar('0');
-		}
-	}
-
-	if (first)
-		_putchar('0');
-
+	if (n > 1)
+		print_binary(n >> 1);
+	_putchar((n & 1) + '0');
 }
