@@ -12,7 +12,7 @@ int append_text_to_file(const char *filename, char *text_content)
 {
 	int t;
 	int bytes;
-	int size;
+	ssize_t size;
 
 	if (filename == NULL)
 		return (-1);
@@ -24,10 +24,11 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (text_content == NULL)
 	{
 		close(t);
-		return (-1);
+		return (1);
 	}
 
-	size = strlen(text_content);
+	while (text_content[size] != '\0')
+		size++;
 
 	bytes = write(t, text_content, size);
 	if (bytes == -1)
