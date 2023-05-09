@@ -21,20 +21,14 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (t == -1)
 		return (-1);
 
-	if (text_content == NULL)
+	if (text_content != NULL)
 	{
-		close(t);
-		return (1);
-	}
+		size = strlen(text_content);
 
-	while (text_content[size] != '\0')
-		size++;
+		bytes = write(t, text_content, size);
+		if (bytes == -1)
+			return (-1);
 
-	bytes = write(t, text_content, size);
-	if (bytes == -1)
-	{
-		close(t);
-		return (-1);
 	}
 
 	close(t);
