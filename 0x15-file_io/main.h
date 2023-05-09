@@ -3,6 +3,7 @@
 
 /* header libraries */
 #include <unistd.h>
+#include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stddef.h>
