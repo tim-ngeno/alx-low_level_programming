@@ -1,6 +1,7 @@
 #include "lists.h"
 
-/** get_dnodeint_at_index - get nth node of a dlist
+/**
+ * get_dnodeint_at_index - get nth node of a dlist
  *
  * @head: pointer to the head node
  * @index: index at which to retrieve node
