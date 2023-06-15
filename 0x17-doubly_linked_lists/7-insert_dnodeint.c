@@ -10,7 +10,7 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *temp = *h, *new = NULL;
-	unsigned int count;
+	unsigned int count, nodes;
 
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
@@ -21,8 +21,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (h == NULL)
 		return (NULL);
+	nodes = count_nodes(*h);
 	if ((*h == NULL && idx == 0) || idx == 0)
 		return (add_dnodeint(h, n));
+	else if (nodes == idx)
+		return (add_dnodeint_end(h, n));
 
 	for (count = 0; temp != NULL && count <= idx - 1; count++)
 	{
@@ -37,4 +40,21 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		temp = temp->next;
 	}
 	return (temp);
+}
+
+/**
+ * count_nodes - count the nodes in a linked list
+ * @h: pointer to the head node
+ * Return: number of nodes
+ */
+size_t count_nodes(dlistint_t *h)
+{
+	int count = 0;
+
+	while (h != NULL)
+	{
+		count++;
+		h = h->next;
+	}
+	return (count);
 }
