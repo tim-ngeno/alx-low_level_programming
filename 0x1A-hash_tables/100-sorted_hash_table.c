@@ -68,7 +68,7 @@ shash_node_t *create_shash_entry(const char *key, const char *value)
  * insert_sorted_list - add an entry to the sorted
  * linked list (ASCII value)
  * @table: the sorted hash table
- * @node: the node to add
+ * @entry: the node to add
  *
  * Return: nothing
  */
