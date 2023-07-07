@@ -59,12 +59,20 @@ hash_node_t *create_node(const char *key, const char *value)
 		return (NULL);
 
 	entry->key = malloc(strlen(key) + 1);
+	if (entry->key == NULL)
+	{
+		free(entry->key);
+		return (NULL);
+	}
 	entry->value = malloc(strlen(value) + 1);
+	if (entry->value == NULL)
+	{
+		free(entry);
+		return (NULL);
+	}
 
 	strcpy(entry->key, key);
 	strcpy(entry->value, value);
-
 	entry->next = NULL;
-
 	return (entry);
 }
