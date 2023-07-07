@@ -17,16 +17,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	    key == NULL || strlen(key) == 0 || value == NULL)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
-	entry = ht->array[index];
-	temp = entry;
+	temp = ht->array[index];
 
-	if (temp == NULL)
-	{
-		ht->array[index] = create_node(key, value);
-		return (1);
-	}
-
-	while (entry != NULL)
+	while (temp != NULL)
 	{
 		if (strcmp(temp->key, key) == 0)
 		{
