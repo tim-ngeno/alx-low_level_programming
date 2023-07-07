@@ -2,6 +2,7 @@
 
 /**
  * hash_table_set - adds an element to the hash table
+ * @ht: the hash table to add an element to
  * @key: the key
  * @value: data part of key/value pair
  *
@@ -12,10 +13,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned int index;
 	hash_node_t *entry, *temp;
 
-	index = key_index((const unsigned char *)key, ht->size);
-	entry = ht->array[index];
+	if (ht == NULL || ht->array == NULL || ht->size == 0 ||
+	    key == NULL || strlen(key) == 0 || value == NULL)
+		return (0);
 
-	if (entry == NULL)
+	index = key_index((const unsigned char *)key, ht->size);
+	temp = ht->array[index];
+
+	if (temp == NULL)
 	{
 		ht->array[index] = create_node(key, value);
 		return (1);
@@ -23,27 +28,28 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	while (entry != NULL)
 	{
-		if (strcmp(entry->key, key) == 0)
+		if (strcmp(temp->key, key) == 0)
 		{
-			free(entry->value);
-			entry->value = malloc(strlen(value) + 1);
-			strcpy(entry->value, value);
+			free(temp->value);
+			temp->value = malloc(strlen(value) + 1);
+			strcpy(temp->value, value);
+			return (1);
 		}
-
-		temp = entry;
-		entry = temp->next;
+		temp = temp->next;
 	}
-	temp->next = create_node(key, value);
-	if (temp->next == NULL)
+	entry = create_node(key, value);
+	if (entry == NULL)
 		return (0);
-	temp->next->next = ht->array[index];
-	ht->array[index] = temp->next;
+	entry->next = ht->array[index];
+	ht->array[index] = entry;
 	return (1);
 }
 
 /**
  * create_node - creates a key value pair at position
- * Return:
+ * @key: the key
+ * @value: the value
+ * Return: returns a key/value pair
  */
 hash_node_t *create_node(const char *key, const char *value)
 {
