@@ -1,0 +1,40 @@
+# Compiler
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# Object files (automatically generated from SRC)
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# Program to delete files
+RM = rm -f
+
+# Mark clean, oclean, fclean, and re rules as phony targets
+.PHONY: all clean oclean fclean re
+
+# Default rule: Build the executable
+all: $(OBJ)
+	$(CC) $^ -o $(NAME)
+
+
+# Compile source files into object files
+%.o: %.c
+	$(CC) -c -o $@ $^
+
+# Clean Emacs, Vim, and executable files
+clean:
+	$(RM) *~ $(NAME)
+
+# Clean object files
+oclean:
+	$(RM) $(OBJ)
+
+# Clean Emacs, Vim, executable, and object files
+fclean: clean oclean
+
+# Rule to force recompilation of all source files
+re: oclean all
