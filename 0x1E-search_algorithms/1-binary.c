@@ -51,8 +51,8 @@ int binary_search(int *array, size_t size, int value)
 		}
 		else if (array[mid] > value)
 		{
-			if (mid == 0)
-				break;
+			if (mid == 0 || left == 0)
+				return (-1);
 			right = mid - 1;
 		}
 		else
